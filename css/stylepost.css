@@ -1,0 +1,93 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+/*body{
+    background: url("../img/bg.png")#EAEAEA;
+
+
+}*/
+.postlist, #postlist {
+    clear: bot;
+    margin-top: 5p;
+    margin-bottom: 40p;
+    position: relativ;
+}
+.posts, #message_list {
+    margin: 10px 0;
+}
+ol {
+    display: block;
+    list-style-type: decimal;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+li {
+    list-style: none;
+    text-align: -webkit-match-parent;
+}
+.post_container {
+    margin:10px auto 10px;
+    display: block;
+    width: 800px;
+    clear: both;
+    position: relative;
+
+    color: #3E3E3E;
+
+}
+.post_head {
+    background: #787878;
+    border-top-left-radius: 11px;
+    border-top-right-radius: 11px;
+    clear: both;
+    display: block;
+    float: left;
+    width: 800px;
+    color: white;
+    margin: 4px 1px 0;
+    font: normal 12px Tahoma,Calibri,Verdana,Geneva,sans-serif;
+    padding: 4px 0px;
+
+}
+span{
+    padding-left: 10px;
+}
+.post_body{
+    border-bottom-right-radius: 11px;
+}
+
+.post_details {
+    float: left;
+    width: 800px;
+    background: #98ca60 none;
+    border-radius: 11px;
+}
+div {
+    display: block;
+}
+ .user_info {
+    float: left;
+    position: relative;
+    width: 180px;
+    padding: 2px 10px 5px;
+    font-size: 11px;
+    display: block;
+    background: #98ca60 none; /*#F2F6F8*/
+    clear: both;
+    color: #ffffff;
+     font: 15px Arial, Tahoma, sans-serif;
+}
+.post_container .post_body, .eventbit .eventdetails .eventbody {
+    margin-left: 200px;
+    border-left: 1px solid #EFEFEF;
+    background: #FAFAFA none;
+    _background-image: none;
+    padding-bottom: 1em;
+}
+.clear_div {
+    clear: both;
+}

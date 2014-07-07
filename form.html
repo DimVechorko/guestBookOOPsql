@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GuestBook</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" media="screen" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/stylepost.css" />
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+
+        <legend><img src="img/images_1.jpg"></legend>
+        <br/>
+        <div class="span8">
+
+            <i>A guestbook (also guest book, visitor log, visitors' book, visitors' album) is a paper or electronic means for a visitor to acknowledge a visit to a site, physical or web-based, and leave details such as their name, postal or electronic address, and any comments.</i>
+            <hr>
+            <br/>
+
+        <form class="form-horizontal" enctype="multipart/form-data" action="<?php $_SERVER['PHP_SELF'];?>" method="post" id="myForm">
+            <fieldset>
+                <input type="hidden" name="MAX_FILE_SIZE" value="204800">
+            <div class="control-group">
+
+
+                <div class="controls">
+                    <input class="span8" type="text" name="name" value="" placeholder="Name" />
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                 <input class="span8" type="email" name="email" value="" placeholder="Email" />
+                </div>
+            </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <input class="span8" type="file" name="loadFile"/>
+                    </div>
+                </div>
+            <div class="control-group">
+
+                <div class="controls">
+                <textarea name="comment" id="comment" rows="4" class="span8" placeholder="Message"></textarea>
+
+                </div>
+            </div>
+            <div class="control-group">
+
+                <div class="controls">
+                    <img src="captcha.php" title="Enter passphrase"/>
+                    <input type="text" name="captcha" id="captcha" autocomplete="off" value=""/>
+
+                </div>
+            </div>
+                <div class="control-group" style="color: red; background: #ffff00" align="center">
+<? echo $_SESSION['name_error']; echo $_SESSION['email_error'];  echo  $_SESSION['comment_error']; echo $_SESSION['captcha_error'];?>
+                </div>
+            <div class="controls">
+                <button id="resetBtn" name="resetBtn" type="reset" class="btn btn-success">Clear</button>
+                <input class="btn btn-primary" type="submit" id="submit" name="submit" value="Enter">
+            </div>
+            </fieldset>
+        </form>
+
+            <div class="control-group" >
+
+                <select class="span1" name="option">
+                    <option value="3">3</option>
+                    <option value="5" selected>5</option>
+                    <option value="10">10</option>
+                </select>
+
+            </div>
+            <div class="control-group" >
+
+                <div class="controls" >
+
+
+                </div>
+
+        </div>
+    </div>
+
+</div>
