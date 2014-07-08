@@ -47,15 +47,19 @@ if (isset($_POST['submit'])) {
     }else{
         $_SESSION['email_error']="|email error|";
     }
-}
 
+    // Эта проверка нужна только при сабмите формы, так что заносим ее в ветку обработки поста
     if ($valid_name==1 && $valid_comment==true && $valid_captcha==true && $valid_email==true) {
         //echo $user_name; echo $strEmailAddress; echo $comment;
         $query="INSERT INTO guests (username, email, comment, date_posted)VALUE ('$user_name','$strEmailAddress','$comment',NOW())";
         $result=mysqli_query($dbc,$query)or die("error query");
-        echo '<p>' . $user_name .  ', Сообщение отправлено!</p>';
+        // Отключаем echo, для нормальной работы редиректа
+        //echo '<p>' . $user_name .  ', Сообщение отправлено!</p>';
         header( 'Location: index.php');
     }
+}
+
+
 
 
 session_destroy();
