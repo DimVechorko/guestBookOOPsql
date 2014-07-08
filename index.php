@@ -41,7 +41,9 @@ if (isset($_POST['submit'])) {
     $valid_email = $validation_email ->check_email_address($strEmailAddress);
     var_dump($valid_email);
     if ($valid_email == true) {
-        return true;
+        // Оставленный здесь return, т.к. он вне фукнции останавливает выполнение скрипта
+        // И до сохранения сообщения не доходит
+        //return true;
     }else{
         $_SESSION['email_error']="|email error|";
     }
