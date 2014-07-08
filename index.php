@@ -8,7 +8,8 @@ require_once ('form.html');
 require_once ('classes.php');
 
 $dbc = new ConnectMysqlDB();
-
+$pagination = new Pagination();
+$postlist= new Postlist();
 $validation = new Validation();
 $validation_email = new EmailAddressValidator();
 
@@ -16,6 +17,10 @@ $validation_email = new EmailAddressValidator();
 
 
 
+$pagination=$pagination->generate_page_links($num_pages);
+echo $pagination;
+
+$postlist=$postlist->outputMessages();
 
 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS,'guestbook');
 
@@ -28,13 +33,13 @@ if (isset($_POST['submit'])) {
 
 
     $valid_name = $validation->validName($user_name);
-    //var_dump($valid_name);
+    var_dump($valid_name);
     $valid_comment = $validation->validComment($comment);
-    //var_dump($valid_comment);
+    var_dump($valid_comment);
     $valid_captcha = $validation->validCaptcha($captcha);
-    //var_dump($valid_captcha);
+    var_dump($valid_captcha);
     $valid_email = $validation_email ->check_email_address($strEmailAddress);
-    //var_dump($valid_email);
+    var_dump($valid_email);
     if ($valid_email == true) {
         // Оставленный здесь return, т.к. он вне фукнции останавливает выполнение скрипта
         // И до сохранения сообщения не доходит
@@ -51,19 +56,11 @@ if (isset($_POST['submit'])) {
         // Отключаем echo, для нормальной работы редиректа
         //echo '<p>' . $user_name .  ', Сообщение отправлено!</p>';
         header( 'Location: index.php');
-        exit();
     }
 }
 
-// Этот блок не нужно обрабатывать при корректном сабмите формы, так что его лучше поместить здесь
-// чтобы зря не выполнять
-// кроме того он будет мешать корректной работе header ghb сабмите формы, если будет находиться выше
-$pagination = new Pagination();
-$postlist= new Postlist();
-$pagination=$pagination->generate_page_links($num_pages);
-echo $pagination;
-$postlist=$postlist->outputMessages();
 
-// Какое назначение этой строки?
-// session_destroy();
+
+
+session_destroy();
 
