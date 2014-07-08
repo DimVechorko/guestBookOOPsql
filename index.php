@@ -1,4 +1,8 @@
 <?php
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_HOST', 'localhost');
+
 session_start();
 require_once ('form.html');
 require_once ('classes.php');
@@ -18,7 +22,7 @@ echo $pagination;
 
 $postlist=$postlist->outputMessages();
 
-$dbc = mysqli_connect('localhost','root','root','guestbook');
+$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS,'guestbook');
 
 if (isset($_POST['submit'])) {
     $user_name = strip_tags(mysqli_real_escape_string($dbc,trim($_POST['name'])));

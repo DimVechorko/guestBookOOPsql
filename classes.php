@@ -1,8 +1,6 @@
 <?php
 
 
-
-
 class connectMysqlDB {
     private $host = 'localhost';
     private $user = 'root';
@@ -35,7 +33,7 @@ class Pagination{
      * @return string
      */
     public function generate_page_links(){
-        $dbc = mysqli_connect('localhost','root','root','guestbook');
+        $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS,'guestbook');
 
         $result_per_page=5;
         $query_for_links="SELECT * FROM guests";
@@ -87,7 +85,7 @@ class Postlist{
         $skip=(($cur_page-1)*$result_per_page);
         echo '<div class="postlist">
               <ol id="post" class="posts" start="1" >';
-        $dbc = mysqli_connect('localhost','root','root','guestbook');
+        $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS,'guestbook');
         $query1="SELECT * FROM guests ORDER BY date_posted LIMIT $skip, $result_per_page"or die ('ERROR');
         $query=mysqli_query($dbc,$query1)or die ('ERROR1');
         if (mysqli_num_rows($query) >= 1){
