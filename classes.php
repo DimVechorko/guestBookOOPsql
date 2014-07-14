@@ -1,7 +1,7 @@
 <?php
 
 
-class connectMysqlDB {
+/*class connectMysqlDB {
     private $host = 'localhost';
     private $user = 'root';
     private $password = 'root';
@@ -25,7 +25,7 @@ class connectMysqlDB {
             mysqli_close(self::$dbc);
     }
 }
-
+*/
 
 class Pagination{
 
